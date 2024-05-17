@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html>
     <link rel="stylesheet" href="mestyle.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <head>
         <title>sito magnifico</title>
     </head>
     <body>
         <div id="mySidenav" class="sidenav">    <!-- menu -->
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a href="index.html">Introduzione</a>
-            <a href="appr.html">Approfondimento</a>
-            <a href="fonti.html">Fonti</a>
+            <a href="index.html" onclick="closeNav()">Introduzione</a>
+            <a href="appr.html" onclick="closeNav()">Approfondimento</a>
+            <a href="fonti.html" onclick="closeNav()">Fonti</a>
         </div>
         <div class="container" onclick="openNav()">  <!-- menu button -->
             <div class="bar1"></div>
@@ -21,7 +22,7 @@
             <article class="points">
                 <section class="point">
                     <h1 class="title">
-                        Fisica
+                        Trasmittente
                     </h1>
                     <h1 class="paragraph">
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident similique accusamus omnis. Voluptate repellendus enim vero facilis dignissimos, saepe voluptatibus amet temporibus illum, excepturi sit. Mollitia hic asperiores illo qui.
@@ -29,7 +30,7 @@
                 </section>
                 <section class="point">
                     <h1 class="title">
-                        Matematica
+                        Ricevitore
                     </h1>
                     <h1 class="paragraph">
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident similique accusamus omnis. Voluptate repellendus enim vero facilis dignissimos, saepe voluptatibus amet temporibus illum, excepturi sit. Mollitia hic asperiores illo qui.
@@ -37,14 +38,80 @@
                 </section>
                 <section class="point">
                     <h1 class="title">
-                        Applicazioni
+                        Grafico della risonanza
                     </h1>
-                    <h1 class="paragraph">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident similique accusamus omnis. Voluptate repellendus enim vero facilis dignissimos, saepe voluptatibus amet temporibus illum, excepturi sit. Mollitia hic asperiores illo qui.
-                    </h1>
+                    <div class="plot1">
+                        <span id="myPlot1" class="myPlot1"></span> <!-- Grafici -->
+                        <span> <!-- Slider -->
+                            <input type="range" max="100" min="0" value="1" class="sliderf" id="freq1">
+                            <input type="range" max="100" min="0" value="1" class="slidera" id="amp1">
+                        </span>
+                        <span class="valori">
+                            <p class="freq">Frequenza 1: <span id="vfreq1"></span></p>
+                            <p class="amp">Ampiezza 1: <span id="vamp1"></span></p>
+                        </span>
+                    </div>
+                    <div class="plot2">
+                        <span id="myPlot2" class="myPlot2"></span>
+                        <span>
+                            <input type="range" max="100" min="0" value="1" class="sliderf" id="freq2">
+                            <input type="range" max="100" min="0" value="1" class="slidera" id="amp2">
+                        </span>
+                        <span class="valori">
+                            <p class="freq">Frequenza 2: <span id="vfreq2"></span></p>
+                            <p class="amp">Ampiezza 2: <span id="vamp2"></span></p>
+                        </span>
+                    </div>
                 </section>
             </article>
         </div>
+        <script>
+            var f1=document.getElementById("freq1");
+            var a1=document.getElementById("amp1");
+            var f2=document.getElementById("freq2");
+            var a2=document.getElementById("amp2");
+
+            //let f1 = "a1*Math.sin(freq1*x)";
+            //let f2 = "a2*Math.sin(freq2*x)";
+
+            let exp1 = "x";
+            // Generate values
+            const xValues1 = [];
+            const yValues1 = [];
+            for (let x = 0; x <= 10; x += 0.1) {
+            xValues1.push(x);
+            yValues1.push(eval(exp1));
+            }
+            // Display using Plotly
+            const data1 = [{x:xValues1, y:yValues1, mode:"lines"}];
+            Plotly.newPlot("myPlot1", data1);
+
+            let exp2 = "f1+f2";
+            // Generate values
+            const xValues2 = [];
+            const yValues2 = [];
+            for (let x = 0; x <= 10; x += 0.1) {
+            xValues2.push(x);
+            yValues2.push(eval(exp2));
+            }
+            // Display using Plotly
+            const data2 = [{x:xValues2, y:yValues2, mode:"lines"}];
+            Plotly.newPlot("myPlot2", data2);
+
+            // Values of the sliders
+            var output1 = document.getElementById("vfreq1");
+            output.innerHTML = output1.value;
+            var output2 = document.getElementById("vamp1");
+            output.innerHTML = output2.value;
+            var output3 = document.getElementById("vfreq2");
+            output.innerHTML = output3.value;
+            var output4 = document.getElementById("vamp2");
+            output.innerHTML = output4.value;
+            slider.oninput = function() {
+                output.innerHTML = this.value;
+            }
+
+        </script>
     </body>
     <script src="scripts.js"></script>
 </html>

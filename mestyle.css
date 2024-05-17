@@ -2,6 +2,8 @@ body{
     background-color: hsl(226, 23%, 11%);
     overflow-x: hidden;
     overflow-y: hidden;
+    font-size: 20px;
+    text-align: center;
 }
 
 .point{
@@ -20,20 +22,19 @@ body{
 
 .title{
     font-family: 'Courier New', Courier, monospace;
-    font-size: large;
+    font-size: 1.7rem;
     color: rgb(110, 94, 167);
-    text-align: center;
 }
 
 .paragraph{
     font-family: 'Courier New', Courier, monospace;
-    font-size: medium;
+    font-size: 1.5rem;
     color: rgb(177, 177, 177);
 }
 
 .fonti{
     font-family: 'Courier New', Courier, monospace;
-    font-size: small;
+    font-size: 1.2rem;
 }
 
 .bar1, .bar2, .bar3 {
@@ -93,6 +94,29 @@ body{
     transition: margin-left .5s;
     padding: 16px;
 }
+
+.myPlot1,.myPlot2{
+    float: top;
+    width: 50%;
+}
+
+.sliderf, .plot1, .freq{
+    float: left;
+    width: 49%;
+    padding-top: 15px;
+}
+
+.slidera, .plot2, .amp{
+    float: right;
+    width: 49%;
+    padding-top: 15px;
+}
+
+.valori{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.1rem;
+    color: rgb(177, 177, 177);
+}
   
 @media screen and (max-height: 450px) {
     .sidenav {padding-top: 15px;}
@@ -100,10 +124,7 @@ body{
 }
 
 @media (max-width: 600px) {
-    .title{
-        font-size: 2rem;
-    }
-    .paragraph{
-        font-size: 1,8rem;
+    .body {
+        font-size: 40px;
     }
 }
