@@ -134,7 +134,7 @@ body{
 
 @media screen and (max-width: 600px) {
     .body {
-        font-size: 30px;
-        line-height: 2rem;
+        font-size: 15px;
+        line-height: 1rem;
     }
 }
