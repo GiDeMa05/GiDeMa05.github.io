@@ -43,8 +43,8 @@
                     <div class="plot1">
                         <span id="myPlot1" class="myPlot1"></span> <!-- Grafici -->
                         <span> <!-- Slider -->
-                            <input type="range" max="100" min="0" value="1" class="sliderf" id="freq1">
-                            <input type="range" max="100" min="0" value="1" class="slidera" id="amp1">
+                            <input type="range" max="100" min="0" value="1" class="sliderf1" id="freq1">
+                            <input type="range" max="100" min="0" value="1" class="slidera1" id="amp1">
                         </span>
                         <span class="valori">
                             <p class="freq">Frequenza 1: <span id="vfreq1"></span></p>
@@ -54,8 +54,8 @@
                     <div class="plot2">
                         <span id="myPlot2" class="myPlot2"></span>
                         <span>
-                            <input type="range" max="100" min="0" value="1" class="sliderf" id="freq2">
-                            <input type="range" max="100" min="0" value="1" class="slidera" id="amp2">
+                            <input type="range" max="100" min="0" value="1" class="sliderf2" id="freq2">
+                            <input type="range" max="100" min="0" value="1" class="slidera2" id="amp2">
                         </span>
                         <span class="valori">
                             <p class="freq">Frequenza 2: <span id="vfreq2"></span></p>
@@ -71,8 +71,8 @@
             var f2=document.getElementById("freq2");
             var a2=document.getElementById("amp2");
 
-            //let f1 = "a1*Math.sin(freq1*x)";
-            //let f2 = "a2*Math.sin(freq2*x)";
+            let o1 = ""+a1+"*(Math.sin("+f1+"*x))";
+            let o2 = ""+a2+"*(Math.sin("+f2+"*x))";
 
             let exp1 = "x";
             // Generate values
@@ -86,7 +86,7 @@
             const data1 = [{x:xValues1, y:yValues1, mode:"lines"}];
             Plotly.newPlot("myPlot1", data1);
 
-            let exp2 = "f1+f2";
+            let exp2 = ""-o1-"+"-o2-"";
             // Generate values
             const xValues2 = [];
             const yValues2 = [];
@@ -100,15 +100,24 @@
 
             // Values of the sliders
             var output1 = document.getElementById("vfreq1");
-            output.innerHTML = output1.value;
+            output1.innerHTML = f1.value;
+            f1.oninput = function() {
+            output1.innerHTML = this.value;
+            }
             var output2 = document.getElementById("vamp1");
-            output.innerHTML = output2.value;
+            output2.innerHTML = a1.value;
+            a1.oninput = function() {
+            output2.innerHTML = this.value;
+            }
             var output3 = document.getElementById("vfreq2");
-            output.innerHTML = output3.value;
+            output3.innerHTML = f2.value;
+            f2.oninput = function() {
+            output3.innerHTML = this.value;
+            }
             var output4 = document.getElementById("vamp2");
-            output.innerHTML = output4.value;
-            slider.oninput = function() {
-                output.innerHTML = this.value;
+            output4.innerHTML = a2.value;
+            a2.oninput = function() {
+            output4.innerHTML = this.value;
             }
 
         </script>
