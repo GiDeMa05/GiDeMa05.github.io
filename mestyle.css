@@ -15,7 +15,7 @@ body{
 
 .points{
     scroll-snap-type: both mandatory;
-    height: 200vw;
+    height: 300vw;
     width: 100%;
     margin: 10px;
     overflow-x: hidden;
