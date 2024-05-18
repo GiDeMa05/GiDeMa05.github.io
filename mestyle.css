@@ -4,11 +4,12 @@ body{
     overflow-y: hidden;
     font-size: 20px;
     text-align: center;
+    line-height: 3rem;
 }
 
 .point{
     height: 100%;
-    scroll-snap-align: center;
+    scroll-snap-align: start;
     margin: 20px;
 }
 
@@ -95,18 +96,18 @@ body{
     padding: 16px;
 }
 
-.myPlot1,.myPlot2{
-    float: top;
-    width: 50%;
+.myPlot{
+    float: left;
+    width: 49%;
 }
 
-.sliderf1, .sliderf2, .plot1, .freq{
+.sliderf, .sliderc, .sliderr, .freq, .res{
     float: left;
     width: 49%;
     padding-top: 15px;
 }
 
-.slidera1, .slidera2, .plot2, .amp{
+.slidera, .sliderl, .sliderv, .amp, .vol{
     float: right;
     width: 49%;
     padding-top: 15px;
@@ -116,6 +117,8 @@ body{
     font-family: 'Courier New', Courier, monospace;
     font-size: 1.1rem;
     color: rgb(177, 177, 177);
+    width: 30%;
+    float: right;
 }
   
 @media screen and (max-height: 450px) {
@@ -123,7 +126,13 @@ body{
     .sidenav a {font-size: 18px;}
 }
 
-@media (max-width: 600px) {
+@media screen and (max-height: 900px){
+    .points{
+        scroll-snap-type: proximity;
+    }
+}
+
+@media screen and (max-width: 600px) {
     .body {
         font-size: 40px;
     }
