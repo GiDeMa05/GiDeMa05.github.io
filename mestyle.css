@@ -1,7 +1,7 @@
 body{
     background-color: hsl(226, 23%, 11%);
     overflow-x: hidden;
-    overflow-y: hidden;
+    /*overflow-y: hidden;*/
     font-size: 20px;
     text-align: center;
     line-height: 3rem;
@@ -9,13 +9,13 @@ body{
 
 .point{
     height: 100%;
-    scroll-snap-align: start;
+    scroll-snap-align: center;
     margin: 20px;
 }
 
 .points{
     scroll-snap-type: both mandatory;
-    height: fit-content;
+    height: 200vw;
     width: 100%;
     margin: 10px;
     overflow-x: hidden;
@@ -128,7 +128,10 @@ body{
 
 @media screen and (max-height: 900px){
     .points{
-        scroll-snap-type: proximity;
+        scroll-snap-type: proximity mandatory;
+    }
+    .point{
+        scroll-snap-align: start;
     }
 }
 
